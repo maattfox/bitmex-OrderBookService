@@ -55,8 +55,8 @@ class MessageParser(object):
             bidPrice = quote['bidPrice']
             bidSize = quote['bidSize']
 
-            askPrice = quote['bidPrice']
-            askSize = quote['bidSize']
+            askPrice = quote['askPrice']
+            askSize = quote['askSize']
 
             self.quotes.insert(ut=timestamp, bidPrice=bidPrice, askPrice=askPrice, bidSize=bidSize, askSize=askSize)
 
