@@ -1,0 +1,30 @@
+version: '3'
+services:
+
+  api:
+    build:
+      context: bitmexOrderBook/app
+      dockerfile: Dockerfile
+    environment:
+      - ENVIRONMENT = prod
+    depends_on:
+      - mongodb
+      - redis
+
+  mongodb:
+    image: mongo:4.0.8
+    container_name: mongodb
+    restart: unless-stopped
+    command: mongod --auth
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongodbuser
+      MONGO_INITDB_ROOT_PASSWORD: your_mongodb_root_password
+      MONGO_INITDB_DATABASE: flaskdb
+      MONGODB_DATA_DIR: /data/db
+      MONDODB_LOG_DIR: /dev/null
+    volumes:
+      - mongodbdata:/data/db
+    networks:
+      - backend
+
+  redis:
