@@ -2,11 +2,12 @@ version: '3'
 services:
 
   web:
-    container_name: bob-app
+    container_name: bob-python
     build:
       context: bitmexOrderBook
       dockerfile: Dockerfile
-    restart: always
+    volumes:
+      - .:/bitmexOrderBook
     depends_on:
       - mongo
       - redis

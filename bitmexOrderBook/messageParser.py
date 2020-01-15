@@ -9,9 +9,9 @@ import json
 import datetime
 import logging
 
-from bitmexOrderBook.orderBook import OrderBook
-from bitmexOrderBook.quote import Quotes
-from bitmexOrderBook.trade import Trades
+from orderBook import OrderBook
+from quote import Quotes
+from trade import Trades
 
 
 class MessageParser(object):

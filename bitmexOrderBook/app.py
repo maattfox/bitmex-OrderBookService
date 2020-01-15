@@ -10,8 +10,8 @@ import logging
 from queue import Queue
 
 # Module files
-from .messageParser import MessageParser
-from .connection import BitMEXWebsocket
+from messageParser import MessageParser
+from connection import BitMEXWebsocket
 
 
 
