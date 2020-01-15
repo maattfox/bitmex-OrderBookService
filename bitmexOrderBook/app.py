@@ -10,8 +10,9 @@ import logging
 from queue import Queue
 
 # Module files
-from bitmexOrderBook.messageParser import MessageParser
-from bitmexOrderBook.connection import BitMEXWebsocket
+from .messageParser import MessageParser
+from .connection import BitMEXWebsocket
+
 
 
 def run():

@@ -1,11 +1,18 @@
-FROM python:3.6
+FROM python:latest
 
-ADD ../requirements.txt /app/
+
+# Set the working directory to /app
 WORKDIR /bitmexOrderBook
 
-RUN pip install -r requirements.txt
+# Copy the current directory contents into the container at /app
+ADD . /bitmexOrderBook
 
-ADD app.py /
+COPY requirements.txt requirements.txt
 
-CMD["python", "./app.py"]
+# Install any needed packages specified in requirements.txt
+RUN pip install -r  requirements.txt
+
+COPY . .
+
+ENTRYPOINT python app.py
 
