@@ -7,6 +7,7 @@ Created on.
 
 from pymongo import MongoClient
 import logging
+import os
 
 
 class Quotes(object):
@@ -27,7 +28,7 @@ class Quotes(object):
         self.logger.info("Initializing Quotes.")
 
         self.logger.info("Setting up Quotes MongoDB Collection")
-        self.dbClient = MongoClient()
+        self.dbClient = MongoClient('mongodb', 27017)
         self.db = self.dbClient.bitmexOrderBook
 
         if "quotes" in self.db.list_collection_names():

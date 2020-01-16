@@ -9,9 +9,10 @@ The orderbook is implemented with a Redis db, where each each key refers to the 
 ## Todo:
 Here are the few things I noticed, and wanted to add.
 
-- [ ] Finish implementing docker
-- [ ] Test latency and costs on AWS
-- [ ] Use AWS Elasticache, VPC for MongoDB 
+- [x] ~~Finish implementing docker~~
 - [ ] Implement better database handling
 - [ ] More efficient handling for websockets
-- [ ] Threading support for Orderbook, Quote and Trade parsing - currently just manages the current number of messages from BitMEX
+- [ ] Robust env variables and docker-compose
+- [ ] Threading support for Orderbook, Quote and Trade parsing - currently just manages the current number of messages from BitMEX, unless a lot of messages comes through.
+- [ ] Test latency and costs on AWS
+- [ ] Use AWS Elasticache, VPC for MongoDB 

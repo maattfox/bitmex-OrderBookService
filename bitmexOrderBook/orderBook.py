@@ -61,7 +61,7 @@ class OrderBook(object):
 
         # Setup MongoDB Collections
         self.logger.info("Setting up OB-INSERTS MongoDB Collection")
-        self.dbClient = MongoClient()
+        self.dbClient = MongoClient('mongodb', 27017)
         self.db = self.dbClient.bitmexOrderBook
 
         # Check if collections already exist, else drop all and create new collection
@@ -88,8 +88,8 @@ class OrderBook(object):
         # Setup Redis in memory DB
         self.logger.info("Creating OrderBook Redis DBs")
 
-        self.redisBids = redis.Redis(host='127.0.0.1', port=6379, db=0)
-        self.redisAsks = redis.Redis(host='127.0.0.1', port=6379, db=1)
+        self.redisBids = redis.Redis(host='redis', port=6379, db=0)
+        self.redisAsks = redis.Redis(host='redis', port=6379, db=1)
 
         # flush all existing databases
         self.redisBids.flushall()

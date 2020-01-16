@@ -28,7 +28,7 @@ class Trades(object):
         self.logger.info("Initializing Trades.")
 
         self.logger.info("Setting up Trades MongoDB Collection")
-        self.dbClient = MongoClient()
+        self.dbClient = MongoClient('mongodb', 27017)
         self.db = self.dbClient.bitmexOrderBook
 
         if "trades" in self.db.list_collection_names():
